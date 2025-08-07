@@ -91,9 +91,6 @@ function addToCart(id) {
     }
     updateCart();
 }
-localStorage.setItem("cart", JSON.stringify(cart));
-
-
 
 function updateCart() {
     cartItems.innerHTML = "";
@@ -138,7 +135,7 @@ function changeQty(id, delta) {
     }
     updateCart();
 }
-
+localStorage.setItem("cart", JSON.stringify(cart));
 
 function toggleWishlist(el) {
     const productCard = el.closest(".product");
