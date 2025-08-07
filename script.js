@@ -100,7 +100,6 @@ function updateCart() {
         const div = document.createElement("div");
         div.classList.add("cart-item");
 
-        // Show image, title, price × qty = total, and +/- buttons
         div.innerHTML = `
             <div class="cart-item-content">
                 <img src="${item.image}" alt="${item.title}">
@@ -115,7 +114,6 @@ function updateCart() {
                 </div>
             </div>
         `;
-
         cartItems.appendChild(div);
         total += item.price * item.qty;
     });
@@ -247,6 +245,7 @@ toggleDark.onclick = () => {
     document.body.classList.toggle("dark");
     cartPopup.classList.toggle("dark");
 };
+
 
 
 
