@@ -91,6 +91,8 @@ function addToCart(id) {
     }
     updateCart();
 }
+localStorage.setItem("cart", JSON.stringify(cart));
+
 
 
 function updateCart() {
@@ -248,5 +250,6 @@ toggleDark.onclick = () => {
     document.body.classList.toggle("dark");
     cartPopup.classList.toggle("dark");
 };
+
 
 
