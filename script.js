@@ -65,7 +65,7 @@ function renderProducts(items) {
       <h3>${product.title}</h3>
       <p class="price">₹${product.price}</p>
       <div class="buttons">
-        <button onclick="addToCart(${product.id})">Add to Cart</button>
+        <button class="add-cart" data-id="${product.id}">Add to Cart</button>
         <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
       </div>
     `;
@@ -73,6 +73,12 @@ function renderProducts(items) {
     });
 }
 renderProducts(products);
+productContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("add-cart")) {
+        const id = +e.target.dataset.id;
+        addToCart(id);
+    }
+});
 
 
 function addToCart(id) {
@@ -231,3 +237,4 @@ toggleDark.onclick = () => {
     document.body.classList.toggle("dark");
     cartPopup.classList.toggle("dark");
 };
+
