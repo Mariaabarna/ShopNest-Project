@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopNest</title>
+    <link rel="stylesheet" href="intern.css">
+</head>
+
+<body>
+    <header>
+        <h1>ShopNest</h1>
+        <div class="actions">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button id="toggleDark">🌙</button>
+            <button id="cartBtn">🛒 (<span id="cartCount">0</span>)</button>
+            <button id="wishlistBtn">❤️ (<span id="wishlistCount">0</span>)</button>
+        </div>
+    </header>
+
+    <div class="categories">
+        <button data-category="all">All</button>
+        <button data-category="electronics">Electronics</button>
+        <button data-category="fashion">Fashion</button>
+        <button data-category="home">Home</button>
+    </div>
+
+    <main id="productContainer"></main>
+
+    <div id="cartPopup" class="hidden">
+        <h3>Cart</h3>
+        <div id="cartItems"></div>
+        <p>Total: ₹<span id="totalPrice">0</span></p>
+        <button id="closeCart">Close</button>
+    </div>
+
+    <div id="productModal" class="hidden">
+        <div class="modal-content">
+            <span class="closeModal">&times;</span>
+            <img id="modalImg" src="" alt="">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <div id="wishlistPanel" class="hidden">
+        <h3>My Wishlist</h3>
+        <div id="wishlistItems"></div>
+        <button id="closeWishlist">Close</button>
+        <button id="clearWishlist">Clear Wishlist</button>
+    </div>
+
+
+    <script src="intern.js"></script>
+</body>
+
+</html>
