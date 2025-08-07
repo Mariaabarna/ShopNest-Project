@@ -94,26 +94,37 @@ function addToCart(id) {
 
 
 function updateCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
     cartItems.innerHTML = "";
     let total = 0;
+
     cart.forEach(item => {
-        total += item.qty * item.price;
-        let div = document.createElement("div");
-        div.className = "cart-item";
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+
+        // Show image, title, price × qty = total, and +/- buttons
         div.innerHTML = `
-      <span>${item.title}</span>
-      <div class="qty-controls">
-        <button onclick="changeQty(${item.id}, -1)">-</button>
-        <span>${item.qty}</span>
-        <button onclick="changeQty(${item.id}, 1)">+</button>
-      </div>
-    `;
+            <div class="cart-item-content">
+                <img src="${item.image}" alt="${item.title}">
+                <div>
+                    <h4>${item.title}</h4>
+                    <p>₹${item.price} × ${item.qty} = ₹${item.price * item.qty}</p>
+                    <div class="qty-controls">
+                        <button onclick="changeQty(${item.id}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
         cartItems.appendChild(div);
+        total += item.price * item.qty;
     });
+
     totalPrice.textContent = total;
+    cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 }
+
 updateCart();
 
 
@@ -237,4 +248,5 @@ toggleDark.onclick = () => {
     document.body.classList.toggle("dark");
     cartPopup.classList.toggle("dark");
 };
+
 
